@@ -6,7 +6,7 @@
 
 基于 Serverless 架构编写的 Jsdelivr 反向代理解决方案模板仓库，提供零成本、高可用的 CDN 加速服务，解决中国内陆地区GFW访问受限问题。
 
-![Deploy Status](https://img.shields.io/github/deployments/YShenZe/vercel-jsdelivr-mirror/production?label=Vercel%20部署状态) 
+![Deploy Status](https://img.shields.io/github/deployments/YShenZe/jsd/production?label=Vercel%20部署状态) 
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 ## 🌟 核心优势
@@ -20,10 +20,10 @@
 ## 🚀 快速部署
 
 ### Vercel 一键部署
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YShenZe/vercel-jsdelivr-mirror&project-name=jsd-mirror&repository-name=jsd-mirror)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YShenZe/Vercel-Netlify-JsDelivr-Mirror&project-name=jsd-mirror&repository-name=jsd-mirror)
 
 ### Netlify 一键部署
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/YShenZe/vercel-jsdelivr-mirror)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/YShenZe/Vercel-Netlify-JsDelivr-Mirror)
 
 > [!WARNING]
 > **重要安全提醒**  
