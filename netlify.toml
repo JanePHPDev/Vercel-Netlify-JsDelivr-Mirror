@@ -1,0 +1,16 @@
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/en"
+  to = "/index-en.html"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "https://cdn.jsdelivr.net/:splat"
+  status = 200
+  force = true
