@@ -6,7 +6,6 @@
 
 基于 Serverless 架构编写的 Jsdelivr 反向代理解决方案模板仓库，提供零成本、高可用的 CDN 加速服务，解决中国内陆地区GFW访问受限问题。
 
-![Deploy Status](https://img.shields.io/github/deployments/YShenZe/jsd/production?label=Vercel%20部署状态) 
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 ## 🌟 核心优势
