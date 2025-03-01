@@ -2,7 +2,7 @@
 
 > [!TIP]
 > 🚀 JsDeliv-CN 项目已上线！使用本套源码，提供长期免费的 JsDelivr 中国加速服务：  
-> **[立即访问](https://jsdelivrcn.netlify.app/) ➡️**
+> **[立即访问](https://cdn.mengze.vip/) ➡️**
 
 基于 Serverless 架构编写的 Jsdelivr 反向代理解决方案模板仓库，提供零成本、高可用的 CDN 加速服务，解决中国内陆地区因GFW拦截，Jsdelivr官方节点访问受限问题。
 
