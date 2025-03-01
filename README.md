@@ -75,7 +75,6 @@ https://cdn.yourdomain.com/npm/vue@3/dist/vue.global.js
 欢迎通过以下方式参与项目：
 1. 提交 [Issue](https://github.com/YShenZe/vercel-jsdelivr-mirror/issues) 反馈问题
 2. Fork 项目并提交 Pull Request
-3. 加入技术讨论群：[Telegram Group](https://t.me/jsdelivr_cn)
 
 贡献者名单：  
 [![Contributors](https://contrib.rocks/image?repo=YShenZe/vercel-jsdelivr-mirror)](https://github.com/YShenZe/vercel-jsdelivr-mirror/graphs/contributors)
