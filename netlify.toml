@@ -10,6 +10,12 @@
   status = 200
 
 [[redirects]]
+  pattern = "/(.*)(.pdf$)"
+  to = "/"
+  status = 403
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "https://cdn.jsdelivr.net/:splat"
   status = 200
