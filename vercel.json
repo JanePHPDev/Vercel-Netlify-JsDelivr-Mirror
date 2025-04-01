@@ -3,6 +3,7 @@
   "routes": [
     { "src": "/", "dest": "/index.html" },
     {"src": "/en","dest": "/index-en.html"},
+    {"src": "/(.*)(.pdf$)", "dest": "/", "status": 403},
     { "src": "/(.*)", "dest": "https://cdn.jsdelivr.net" }
     ]
 }
