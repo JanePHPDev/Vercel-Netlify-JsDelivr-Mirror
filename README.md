@@ -86,3 +86,5 @@ https://cdn.yourdomain.com/npm/vue@3/dist/vue.global.js
 ---
 
 > 如果本项目对您有帮助，请点亮 ⭐ Star 支持！您的认可是我们持续优化的动力！
+
+[![mm_reward_qrcode_1743497808845.png](https://cdn.mengze.vip/gh/YShenZe/Blog-Static-Resource@main/images/mm_reward_qrcode_1743497808845.png)](https://cdn.mengze.vip/gh/YShenZe/Blog-Static-Resource@main/images/mm_reward_qrcode_1743497808845.png)
