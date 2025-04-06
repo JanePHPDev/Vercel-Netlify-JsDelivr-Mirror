@@ -22,6 +22,6 @@
   force = true
 
 [[redirects]]
-  from = "turbofely"
+  from = "/turbofely"
   to = "/npm/turbofely@1.0.0/src/turbofely.js"
   status = 200
