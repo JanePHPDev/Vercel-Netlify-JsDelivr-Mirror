@@ -15,13 +15,14 @@
   status = 403
   force = true
 
-[[redirects]]
-  from = "/*"
-  to = "https://cdn.jsdelivr.net/:splat"
-  status = 200
-  force = true
 
 [[redirects]]
   from = "/turbofely"
   to = "/npm/turbofely@1.0.0/src/turbofely.js"
   status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "https://cdn.jsdelivr.net/:splat"
+  status = 200
+  force = true
