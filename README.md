@@ -8,7 +8,7 @@
 
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-[![Star History Chart](https://api.star-history.com/svg?repos=YShenZe/Vercel-Netlify-Jsdelivr-Mirror&type=Date)](https://star-history.com/#guodongxiaren/README&Date) 
+[![Star History Chart](https://api.star-history.com/svg?repos=YShenZe/Vercel-Netlify-Jsdelivr-Mirror&type=Date)](https://star-history.com/#YShenZe/Vercel-Netlify-Jsdelivr-Mirror&Date) 
 
 ## 🌟 核心优势
 
