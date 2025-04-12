@@ -8,6 +8,8 @@
 
 ![License](https://img.shields.io/badge/license-MIT-green)
 
+[![Star History Chart](https://api.star-history.com/svg?repos=YShenZe/&type=Date)](https://star-history.com/#guodongxiaren/README&Date) 
+
 ## 🌟 核心优势
 
 - **零成本运营** - 基于 Vercel/Netlify 免费额度，无需服务器投入  
