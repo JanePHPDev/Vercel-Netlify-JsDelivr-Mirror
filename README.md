@@ -10,13 +10,6 @@
 
 [![Star History Chart](https://api.star-history.com/svg?repos=YShenZe/Vercel-Netlify-Jsdelivr-Mirror&type=Date)](https://star-history.com/#YShenZe/Vercel-Netlify-Jsdelivr-Mirror&Date) 
 
-## 🌟 核心优势
-
-- **零成本运营** - 基于 Vercel/Netlify 免费额度，无需服务器投入  
-- **智能缓存加速** - 自动缓存资源到边缘节点，访问速度提升 300%+  
-- **一键全球分发** - 自动同步 jsDelivr 资源，支持 npm/gh 全生态  
-- **多平台支持** - 同时兼容 Vercel/Netlify 两大 Serverless 平台  
-- **HTTPS 加密** - 自动启用 SSL 证书，数据传输更安全  
 
 ## 🚀 快速部署
 
