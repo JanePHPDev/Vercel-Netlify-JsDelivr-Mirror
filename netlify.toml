@@ -15,6 +15,11 @@
   status = 403
   force = true
 
+[[redirects]]
+  from = "/gravatar"
+  to = "https://secure.gravatar.com/"
+  status = 200
+  force = true
 
 [[redirects]]
   from = "/turbofely"
