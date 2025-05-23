@@ -1,4 +1,4 @@
-# Vercel/Netlify-jsdelivr-mirror
+Jsdelivr-mirror
 
 > [!TIP]
 > 🚀 JsDeliv-CN 项目已上线！使用本套源码，提供长期免费的 JsDelivr 中国加速服务：  
