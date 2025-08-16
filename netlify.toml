@@ -16,8 +16,8 @@
   force = true
 
 [[redirects]]
-  from = "/gravatar"
-  to = "https://secure.gravatar.com/"
+  from = "/gemini"
+  to = "https://generativelanguage.googleapis.com/"
   status = 200
   force = true
 
