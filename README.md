@@ -68,11 +68,11 @@ https://cdn.yourdomain.com/npm/vue@3/dist/vue.global.js
 ## 🤝 参与贡献
 
 欢迎通过以下方式参与项目：
-1. 提交 [Issue](https://github.com/JanePHPDev/vercel-jsdelivr-mirror/issues) 反馈问题
+1. 提交 [Issue](https://github.com/JanePHPDev/Vercel-Netlify-Jsdelivr-Mirror/issues) 反馈问题
 2. Fork 项目并提交 Pull Request
 
 贡献者名单：  
-[![Contributors](https://contrib.rocks/image?repo=JanePHPDev/vercel-jsdelivr-mirror)](https://github.com/JanePHPDev/vercel-jsdelivr-mirror/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=JanePHPDev/vercel-jsdelivr-mirror)](https://github.com/JanePHPDev/Vercel-Netlify-Jsdelivr-Mirror/graphs/contributors)
 
 ## 📜 开源协议
 
