@@ -72,7 +72,7 @@ https://cdn.yourdomain.com/npm/vue@3/dist/vue.global.js
 2. Fork 项目并提交 Pull Request
 
 贡献者名单：  
-[![Contributors](https://contrib.rocks/image?repo=JanePHPDev/vercel-jsdelivr-mirror)](https://github.com/YShenZe/vercel-jsdelivr-mirror/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=JanePHPDev/vercel-jsdelivr-mirror)](https://github.com/JanePHPDev/vercel-jsdelivr-mirror/graphs/contributors)
 
 ## 📜 开源协议
 
