@@ -8,16 +8,16 @@
 
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-[![Star History Chart](https://api.star-history.com/svg?repos=YShenZe/Vercel-Netlify-Jsdelivr-Mirror&type=Date)](https://star-history.com/#YShenZe/Vercel-Netlify-Jsdelivr-Mirror&Date) 
+[![Star History Chart](https://api.star-history.com/svg?repos=JanePHPDev/Vercel-Netlify-Jsdelivr-Mirror&type=Date)](https://star-history.com/#JanePHPDev/Vercel-Netlify-Jsdelivr-Mirror&Date) 
 
 
 ## 🚀 快速部署
 
 ### Vercel 一键部署
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YShenZe/Vercel-Netlify-JsDelivr-Mirror&project-name=jsd-mirror&repository-name=jsd-mirror)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/JanePHPDev/Vercel-Netlify-JsDelivr-Mirror&project-name=jsd-mirror&repository-name=jsd-mirror)
 
 ### Netlify 一键部署
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/YShenZe/Vercel-Netlify-JsDelivr-Mirror)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/JanePHPDev/Vercel-Netlify-JsDelivr-Mirror)
 
 > [!WARNING]
 > **重要安全提醒**  
@@ -68,11 +68,11 @@ https://cdn.yourdomain.com/npm/vue@3/dist/vue.global.js
 ## 🤝 参与贡献
 
 欢迎通过以下方式参与项目：
-1. 提交 [Issue](https://github.com/YShenZe/vercel-jsdelivr-mirror/issues) 反馈问题
+1. 提交 [Issue](https://github.com/JanePHPDev/vercel-jsdelivr-mirror/issues) 反馈问题
 2. Fork 项目并提交 Pull Request
 
 贡献者名单：  
-[![Contributors](https://contrib.rocks/image?repo=YShenZe/vercel-jsdelivr-mirror)](https://github.com/YShenZe/vercel-jsdelivr-mirror/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=JanePHPDev/vercel-jsdelivr-mirror)](https://github.com/YShenZe/vercel-jsdelivr-mirror/graphs/contributors)
 
 ## 📜 开源协议
 
@@ -82,4 +82,4 @@ https://cdn.yourdomain.com/npm/vue@3/dist/vue.global.js
 
 > 如果本项目对您有帮助，请点亮 ⭐ Star 支持！您的认可是我们持续优化的动力！
 
-[![mm_reward_qrcode_1743497808845.png](https://cdn.mengze.vip/gh/YShenZe/Blog-Static-Resource@main/images/mm_reward_qrcode_1743497808845.png)](https://cdn.mengze.vip/gh/YShenZe/Blog-Static-Resource@main/images/mm_reward_qrcode_1743497808845.png)
+[![mm_reward_qrcode_1743497808845.png](https://cdn.mengze.vip/gh/YShenZe/Blog-Static-Resource@main/images/mm_reward_qrcode_1743497808845.png)](https://cdn.mengze.vip/gh/JanePHPDev/Blog-Static-Resource@main/images/mm_reward_qrcode_1743497808845.png)
