@@ -2,6 +2,13 @@
   publish = "."
   command = ""
 
+
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+  conditions = {Role = ["anonymous"]}
+
 [[redirects]]
   from = "/npm/*"
   to = "https://cdn.jsdelivr.net/npm/:splat"
@@ -67,9 +74,3 @@
   to = "https://use.fontawesome.com/releases/:splat"
   status = 200
   force = true
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  conditions = {Role = ["anonymous"]}
