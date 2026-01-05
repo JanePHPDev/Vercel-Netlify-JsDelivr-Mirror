@@ -1,404 +1,489 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JsDelivr中国镜像站</title>
-  <meta name="description" content='由梦泽搭建的jsDelivr反代镜像站，样式来自tailwindcss可以使用Vercel搭建绑定自己的域名。有搜索npm包等多种功能https://cdn.mengze.vip/'>
-  <meta name="keywords" content="jsDelivr,林梦泽,反代镜像站">
-  <meta name="anthor" content="梦泽,yshenze123@gmail.com">
-  <style>
-    :root {
-      --primary: #2A5C82;
-      --secondary: #5BA4E6;
-      --accent: #0d6efd;
-      --light: #F8F9FA;
-      --header-height: 70px;
-      --shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-      --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      --border-radius: 6px;
-      --transition: 0.3s ease;
-    }
-
-    body.dark-mode {
-      --primary: #1e1e1e;
-      --secondary: #444;
-      --accent: #0d6efd;
-      --light: #121212;
-    }
-
-    body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      line-height: 1.6;
-      background: var(--light);
-      color: #333;
-      transition: background var(--transition), color var(--transition);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    /* 顶部导航 */
-    header {
-      background: rgba(42, 92, 130, 0.9);
-      color: white;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: var(--header-height);
-      z-index: 1000;
-      box-shadow: var(--shadow);
-      transition: background var(--transition);
-    }
-
-    body.dark-mode header {
-      background: rgba(30, 30, 30, 0.9);
-    }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-      height: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .nav-logo {
-      font-size: 1.6rem;
-      font-weight: bold;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: color var(--transition);
-    }
-
-    .nav-links a:hover {
-      color: var(--secondary);
-    }
-
-    body.dark-mode .nav-links a:hover {
-      color: var(--accent);
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 25px;
-      height: 18px;
-      cursor: pointer;
-      transition: transform var(--transition);
-    }
-
-    .hamburger span {
-      display: block;
-      height: 3px;
-      background: white;
-      border-radius: var(--border-radius);
-      transition: all var(--transition);
-    }
-
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      gap: 1rem;
-      background: rgba(42, 92, 130, 0.95);
-      padding: 1rem;
-      text-align: center;
-      transition: max-height var(--transition) ease;
-      overflow: hidden;
-    }
-
-    .mobile-menu a {
-      color: white;
-      text-decoration: none;
-      font-size: 1.2rem;
-    }
-
-    .mobile-menu.active {
-      display: flex;
-    }
-
-    body.dark-mode .mobile-menu {
-      background: rgba(30, 30, 30, 0.95);
-    }
-
-    .hero {
-      height: calc(100vh - var(--header-height));
-      padding-top: var(--header-height);
-      background: linear-gradient(rgba(42, 92, 130, 0.8), rgba(42, 92, 130, 0.8)),
-                  url('https://picsum.photos/1920/1080') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-      transition: background var(--transition);
-    }
-
-    body.dark-mode .hero {
-      background: linear-gradient(rgba(30, 30, 30, 0.8), rgba(30, 30, 30, 0.8)),
-                  url('https://picsum.photos/1920/1080') center/cover no-repeat;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-      line-height: 1.5;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-    }
-
-    .btn {
-      background: white;
-      color: var(--accent);
-      padding: 0.8rem 1.5rem;
-      border: none;
-      border-radius: var(--border-radius);
-      cursor: pointer;
-      font-weight: bold;
-      text-decoration: none;
-      transition: background var(--transition), transform var(--transition);
-    }
-
-    .btn:hover {
-      background: #f0f0f0;
-      transform: translateY(-2px);
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    #about, #contact {
-      margin-bottom: 2rem;
-      transition: background var(--transition), color var(--transition);
-    }
-
-    body.dark-mode #about,
-    body.dark-mode #contact {
-      color: #ddd;
-    }
-
-    #about h2, #contact h2 {
-      color: var(--accent);
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-
-    #about p {
-      margin-bottom: 1rem;
-    }
-
-    code{
-    background: #CFCFCF;
-    border-radius: 3px;
-    padding: 1px;
-    font-family: Consolas, monospace;
-    }
-
-    pre {
-      background: #CFCFCF;
-      padding: 1rem;
-      border-radius: 4px;
-      overflow-x: auto;
-      font-family: Consolas, monospace;
-      margin: 1rem 0;
-      transition: background var(--transition), color var(--transition);
-    }
-
-    body.dark-mode code{
-      background: #333;
-      border-radius: 3px;
-      padding: 1px;
-      font-family: Consolas, monospace;
-    }
-
-    body.dark-mode pre {
-      background: #333;
-      color: #eee;
-    }
-
-    form button {
-      background: var(--accent);
-      color: white;
-      padding: 0.8rem 1.5rem;
-      border: none;
-      border-radius: var(--border-radius);
-      cursor: pointer;
-      font-size: 1rem;
-      transition: background var(--transition);
-    }
-
-    form button:hover {
-      background: #0056b3;
-    }
-
-    footer {
-      background: #333;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-    }
-
-    body.dark-mode footer {
-      background: #222;
-    }
-
-    .dark-mode-toggle {
-      background: none;
-      border: 1px solid white;
-      border-radius: var(--border-radius);
-      color: white;
-      padding: 0.3rem 0.6rem;
-      cursor: pointer;
-      font-size: 0.9rem;
-      transition: background var(--transition), transform var(--transition);
-    }
-
-    .dark-mode-toggle:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: translateY(-2px);
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>泽客来宾公益反代CDN - cdn.zeinklab.com</title>
+    <link rel="stylesheet" href="/cdnjs/prism/1.29.0/themes/prism.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #ffffff;
+            color: #000000;
+            line-height: 1.5;
+            font-size: 14px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: #f8f9fa;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 15px 0;
+            margin-bottom: 20px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #000000;
+        }
+        
+        .domain {
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            color: #333333;
+            font-weight: 600;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #e0e0e0;
+            color: #000000;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+            border: 1px solid #cccccc;
+        }
+        
+        .section {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        
+        .section-title {
+            font-size: 18px;
+            color: #000000;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+        
+        .section-title::before {
+            content: "▸";
+            color: #333333;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 12px;
+        }
+        
+        .service-card {
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 12px;
+            transition: all 0.2s ease;
+        }
+        
+        .service-card:hover {
+            border-color: #666666;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .service-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #000000;
+            margin-bottom: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .service-path {
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #333333;
+            background: #e8e8e8;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+        
+        .service-desc {
+            font-size: 13px;
+            color: #555555;
+            margin-bottom: 8px;
+        }
+        
+        .example-box {
+            background: #f0f0f0;
+            border: 1px solid #d0d0d0;
+            border-radius: 4px;
+            padding: 8px;
+            margin-top: 8px;
+            position: relative;
+        }
+        
+        .example-title {
+            font-size: 12px;
+            color: #333333;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+        
+        code {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #000000;
+            background: #e8e8e8;
+            padding: 1px 3px;
+            border-radius: 3px;
+        }
+        
+        .quick-start {
+            background: #f0f4f8;
+            border: 1px solid #d0d0d0;
+        }
+        
+        .warning {
+            background: #fff9e6;
+            border: 1px solid #e0c090;
+        }
+        
+        .warning .section-title {
+            color: #664d00;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666666;
+            font-size: 12px;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 20px;
+        }
+        
+        a {
+            color: #333333;
+            text-decoration: underline;
+            text-decoration-color: #999999;
+        }
+        
+        a:hover {
+            color: #000000;
+            text-decoration-color: #333333;
+        }
+        
+        .usage-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        
+        .usage-table th,
+        .usage-table td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .usage-table th {
+            background: #f0f0f0;
+            color: #000000;
+            font-weight: 600;
+        }
+        
+        .usage-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        pre {
+            margin: 0 !important;
+            border-radius: 4px !important;
+            font-size: 12px !important;
+            background: #f8f9fa !important;
+        }
+        
+        pre code {
+            font-size: 12px !important;
+            color: #000000 !important;
+        }
+        
+        .copy-btn {
+            float: right;
+            background: #e0e0e0;
+            border: 1px solid #cccccc;
+            color: #333333;
+            padding: 2px 6px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 11px;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        
+        .copy-btn:hover {
+            background: #d0d0d0;
+            color: #000000;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 20px;
+            }
+            
+            .domain {
+                font-size: 14px;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="nav-container">
-      <div class="nav-logo">JsDelivr中国镜像站</div>
-      <nav class="nav-links">
-<a href="https://mengze.vip">站长博客</a> 
-      <a href="https://linexic.top">LineXic博客</a> 
-<a href="https://cdn.mengze.vip/en">English</a>  
-      <a href="mailto:yshenze123@gmail.com">联系站长</a>
-        <button class="dark-mode-toggle" id="darkModeToggle">暗色模式</button>
-      </nav>
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>泽客来宾公益反代CDN</h1>
+                <div>
+                    <span class="domain">cdn.zeinklab.com</span>
+                    <span class="badge">公益</span>
+                    <span class="badge">高速</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- 快速开始 -->
+        <div class="section quick-start">
+            <div class="section-title">⚡ 快速开始</div>
+            <p>将以下任意 CDN 域名替换为 <code>cdn.zeinklab.com</code>，并添加对应的前缀路径即可使用。</p>
+            <div class="example-box">
+                <div class="example-title">示例：加载 Vue 3</div>
+                <pre><code class="language-html">&lt;!-- 原地址 --&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/vue@3.3.4/dist/vue.global.js"&gt;&lt;/script&gt;
+
+&lt;!-- 反代地址 --&gt;
+&lt;script src="https://cdn.zeinklab.com/npm/vue@3.3.4/dist/vue.global.js"&gt;&lt;/script&gt;</code></pre>
+            </div>
+        </div>
+
+        <!-- 反代服务列表 -->
+        <div class="section">
+            <div class="section-title">🛠️ 反代服务列表</div>
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-name">
+                        NPM (jsDelivr)
+                        <span class="badge">推荐</span>
+                    </div>
+                    <div class="service-path">/npm/*</div>
+                    <div class="service-desc">反代 npm 包，支持所有 jsDelivr 的 npm 功能</div>
+                    <div class="example-box">
+                        <div class="example-title">使用示例</div>
+                        <pre><code class="language-bash">https://cdn.zeinklab.com/npm/package@version/file</code></pre>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-name">GitHub (jsDelivr)</div>
+                    <div class="service-path">/gh/*</div>
+                    <div class="service-desc">反代 GitHub 仓库文件</div>
+                    <div class="example-box">
+                        <div class="example-title">使用示例</div>
+                        <pre><code class="language-bash">https://cdn.zeinklab.com/gh/user/repo@version/file</code></pre>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-name">WordPress (jsDelivr)</div>
+                    <div class="service-path">/wp/*</div>
+                    <div class="service-desc">反代 WordPress 插件和主题</div>
+                    <div class="example-box">
+                        <div class="example-title">使用示例</div>
+                        <pre><code class="language-bash">https://cdn.zeinklab.com/wp/plugin/tags/version/file</code></pre>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-name">Gravatar 头像</div>
+                    <div class="service-path">/avatar/*</div>
+                    <div class="service-desc">反代 Gravatar 用户头像</div>
+                    <div class="example-box">
+                        <div class="example-title">使用示例</div>
+                        <pre><code class="language-bash">https://cdn.zeinklab.com/avatar/HASH?s=200</code></pre>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-name">UNPKG</div>
+                    <div class="service-path">/unpkg/*</div>
+                    <div class="service-desc">反代 UNPKG CDN</div>
+                    <div class="example-box">
+                        <div class="example-title">使用示例</div>
+                        <pre><code class="language-bash">https://cdn.zeinklab.com/unpkg/package@version/file</code></pre>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-name">CDNJS</div>
+                    <div class="service-path">/cdnjs/*</div>
+                    <div class="service-desc">反代 CDNJS 库</div>
+                    <div class="example-box">
+                        <div class="example-title">使用示例</div>
+                        <pre><code class="language-bash">https://cdn.zeinklab.com/cdnjs/library/version/file</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 详细用法 -->
+        <div class="section">
+            <div class="section-title">📋 详细用法</div>
+            <table class="usage-table">
+                <thead>
+                    <tr>
+                        <th>服务</th>
+                        <th>原地址</th>
+                        <th>反代地址</th>
+                        <th>示例</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>jsDelivr NPM</td>
+                        <td><code>cdn.jsdelivr.net/npm/:path</code></td>
+                        <td><code>cdn.zeinklab.com/npm/:path</code></td>
+                        <td><code>/npm/vue@3.3.4/dist/vue.global.js</code></td>
+                    </tr>
+                    <tr>
+                        <td>jsDelivr GitHub</td>
+                        <td><code>cdn.jsdelivr.net/gh/:path</code></td>
+                        <td><code>cdn.zeinklab.com/gh/:path</code></td>
+                        <td><code>/gh/jquery/jquery@3.6.0/dist/jquery.min.js</code></td>
+                    </tr>
+                    <tr>
+                        <td>jsDelivr WordPress</td>
+                        <td><code>cdn.jsdelivr.net/wp/:path</code></td>
+                        <td><code>cdn.zeinklab.com/wp/:path</code></td>
+                        <td><code>/wp/wp-slimstat/tags/4.9.3/wp-slimstat.min.js</code></td>
+                    </tr>
+                    <tr>
+                        <td>Gravatar</td>
+                        <td><code>www.gravatar.com/avatar/:hash</code></td>
+                        <td><code>cdn.zeinklab.com/avatar/:hash</code></td>
+                        <td><code>/avatar/205e460b479e2e5b48aec07710c08d50?s=200</code></td>
+                    </tr>
+                    <tr>
+                        <td>UNPKG</td>
+                        <td><code>unpkg.com/:path</code></td>
+                        <td><code>cdn.zeinklab.com/unpkg/:path</code></td>
+                        <td><code>/unpkg/react@18.2.0/umd/react.production.min.js</code></td>
+                    </tr>
+                    <tr>
+                        <td>CDNJS</td>
+                        <td><code>cdnjs.cloudflare.com/ajax/libs/:path</code></td>
+                        <td><code>cdn.zeinklab.com/cdnjs/:path</code></td>
+                        <td><code>/cdnjs/jquery/3.6.0/jquery.min.js</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 代码示例 -->
+        <div class="section">
+            <div class="section-title">💻 HTML 中使用示例</div>
+            <div class="example-box">
+                <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                <pre><code class="language-html">&lt;!-- 加载 Vue 3 --&gt;
+&lt;script src="https://cdn.zeinklab.com/npm/vue@3.3.4/dist/vue.global.js"&gt;&lt;/script&gt;
+
+&lt;!-- 加载 React --&gt;
+&lt;script crossorigin src="https://cdn.zeinklab.com/unpkg/react@18.2.0/umd/react.production.min.js"&gt;&lt;/script&gt;
+
+&lt;!-- 加载 jQuery --&gt;
+&lt;script src="https://cdn.zeinklab.com/cdnjs/jquery/3.6.0/jquery.min.js"&gt;&lt;/script&gt;
+
+&lt;!-- 加载 Bootstrap CSS --&gt;
+&lt;link rel="stylesheet" href="https://cdn.zeinklab.com/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"&gt;
+
+&lt;!-- 显示 Gravatar 头像 --&gt;
+&lt;img src="https://cdn.zeinklab.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200" alt="Avatar"&gt;</code></pre>
+            </div>
+        </div>
+
+        <!-- 注意事项 -->
+        <div class="section warning">
+            <div class="section-title">⚠️ 注意事项</div>
+            <ul style="margin-left: 20px; color: #664d00;">
+                <li>本服务为公益性质，不保证 100% 可用性</li>
+                <li>所有请求都会经过 Netlify，可能有 26 秒超时限制</li>
+                <li>CDN 缓存遵循源站策略，缓存时间可能较长</li>
+                <li>请勿用于非法或滥用用途</li>
+                <li>如遇到问题，请检查源站是否可访问</li>
+            </ul>
+        </div>
     </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="https://mengze.vip">站长博客</a> 
-      <a href="https://linexic.top">LineXic博客</a> 
-<a href="https://cdn.mengze.vip/en">English</a>
-      <a href="mailto:yshenze123@gmail.com">联系站长</a>
-      <!-- 移动端也添加切换按钮 -->
-      <button class="dark-mode-toggle" id="darkModeToggleMobile">暗色模式</button>
-    </div>
-  </header>
 
-  <section class="hero">
-    <div>
-      <h1>JsDelivr China Proxy</h1>
-      <p>
-        中国大陆地区优化的 jsDelivr CDN 加速服务<br>
-        由 <a href="https://mengze.vip" style="color: white; text-decoration: underline;">@梦泽</a>提供
-      </p>
-      <a href="#contact" class="btn">立即使用</a>
-    </div>
-  </section>
+    <footer>
+        <p>&copy; 2024 泽客来宾公益反代CDN | <a href="https://zeinklab.com" target="_blank">zeinklab.com</a></p>
+        <p style="margin-top: 8px; font-size: 11px; color: #888888;">Powered by Netlify | 为开发者提供更快的资源加载</p>
+    </footer>
 
-  <div class="container">
-    <section id="about">
-      <h1>如何使用本镜像站？</h1>
-      <p>若您需要使用加速服务，只需将 jsDelivr 链接中的 <code>cdn.jsdelivr.net</code> 替换为 <code>cdn.mengze.vip</code>即可。比如：</p>
-      <p><pre>https://cdn.jsdelivr.net/npm/jquery@4.0.0-beta.2/dist/jquery.min.js</pre></p>
-      <p>替换后变为：</p>
-      <p><pre>https://cdn.mengze.vip/npm/jquery@4.0.0-beta.2/dist/jquery.min.js</pre></p>
-      <p>若想访问项目文件夹，请使用如下格式：</p>
-      <p><pre>https://cdn.mengze.vip/npm/包名@版本/</pre></p>
-      <p>示例：</p>
-      <p><pre>https://cdn.mengze.vip/npm/jquery@4.0.0-beta.2/</pre></p>
-      <hr>
-      <br>
-      <p>为了确保服务的稳定性与合规性，使用本镜像站时请遵守以下规定：</p>
-      <ul class="list-disc pl-6">
-        <li><b>不得 </b> 加速或传播违反中国大陆法律法规的内容，包括但不限于色情、暴力、政治敏感信息等。</li>
-        <li>镜像站提供 <b>稳定加速服务</b>，但不对长期可用性做保证。</li>
-        <li>如需清除缓存，请参考 <a href="https://www.jsdelivr.com" class="text-blue-500 hover:underline">jsDelivr 官方指南</a>。</li>
-      </ul>
-      <p>项目开源地址：<a href="https://github.com/YShenZe/vercel-jsdelivr-mirror" target="_blank" style="color: var(--accent); text-decoration: underline;">GitHub 仓库</a></p>
-    </section>
-
-  </div>
-
-  <footer>
-    <p>&copy; 2024 梦泽的 jsDelivr 镜像站 · 基于开源项目运行</p>
-  </footer>
-
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    hamburger.addEventListener('click', () => {
-      mobileMenu.classList.toggle('active');
-      hamburger.classList.toggle('open');
-    });
-
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    const darkModeToggleMobile = document.getElementById('darkModeToggleMobile');
-
-    if (localStorage.getItem('darkMode') === 'enabled') {
-      document.body.classList.add('dark-mode');
-      darkModeToggle.textContent = '亮色模式';
-      darkModeToggleMobile.textContent = '亮色模式';
-    }
-
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-      const isDark = document.body.classList.contains('dark-mode');
-      darkModeToggle.textContent = isDark ? '亮色模式' : '暗色模式';
-      darkModeToggleMobile.textContent = isDark ? '亮色模式' : '暗色模式';
-      localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
-    }
-
-    darkModeToggle.addEventListener('click', toggleDarkMode);
-    darkModeToggleMobile.addEventListener('click', () => {
-      mobileMenu.classList.remove('active');
-      toggleDarkMode();
-    });
-  </script>
-<script defer src="https://u.linexic.top/script.js" data-website-id="a65d7910-4945-4632-ad13-b5f65c378919"></script>
+    <script src="/cdnjs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="/cdnjs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    
+    <script>
+        // 复制代码功能
+        function copyCode(button) {
+            const code = button.nextElementSibling.textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = button.textContent;
+                button.textContent = '已复制!';
+                button.style.background = '#d0d0d0';
+                button.style.color = '#000000';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '#e0e0e0';
+                    button.style.color = '#333333';
+                }, 2000);
+            });
+        }
+    </script>
 </body>
 </html>
