@@ -1,9 +1,63 @@
 {
-  "version": 2,
-  "routes": [
-    { "src": "/", "dest": "/index.html" },
-    {"src": "/en","dest": "/index-en.html"},
-    {"src": "/(.*)(.pdf$)", "dest": "/", "status": 403},
-    { "src": "/(.*)", "dest": "https://cdn.jsdelivr.net" }
-    ]
+  "redirects": [
+    {
+      "source": "/(.*)\\.pdf$",
+      "destination": "/",
+      "statusCode": 403
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/npm/(.*)",
+      "destination": "https://cdn.jsdelivr.net/npm/$1"
+    },
+    {
+      "source": "/gh/(.*)",
+      "destination": "https://cdn.jsdelivr.net/gh/$1"
+    },
+    {
+      "source": "/wp/(.*)",
+      "destination": "https://cdn.jsdelivr.net/wp/$1"
+    },
+    {
+      "source": "/avatar/(.*)",
+      "destination": "https://www.gravatar.com/avatar/$1"
+    },
+    {
+      "source": "/unpkg/(.*)",
+      "destination": "https://unpkg.com/$1"
+    },
+    {
+      "source": "/cdnjs/(.*)",
+      "destination": "https://cdnjs.cloudflare.com/ajax/libs/$1"
+    },
+    {
+      "source": "/fonts/(.*)",
+      "destination": "https://fonts.googleapis.com/css$1"
+    },
+    {
+      "source": "/fonts-gstatic/(.*)",
+      "destination": "https://fonts.gstatic.com/s/$1"
+    },
+    {
+      "source": "/jquery/(.*)",
+      "destination": "https://code.jquery.com/$1"
+    },
+    {
+      "source": "/bootstrap/(.*)",
+      "destination": "https://stackpath.bootstrapcdn.com/bootstrap/$1"
+    },
+    {
+      "source": "/fontawesome/(.*)",
+      "destination": "https://use.fontawesome.com/releases/$1"
+    },
+    {
+      "source": "/gemini",
+      "destination": "https://generativelanguage.googleapis.com/"
+    },
+    {
+      "source": "/",
+      "destination": "/index.html"
+    }
+  ]
 }
