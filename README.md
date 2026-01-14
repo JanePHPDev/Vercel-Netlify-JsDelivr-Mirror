@@ -1,12 +1,34 @@
-## Jsdelivr-Proxy
+## 泽客CDN反代 / ZekCDN Proxy
 
 > [!TIP]
-> 🚀 JsDeliv-CN 项目已上线！使用本套源码，提供长期免费的 JsDelivr 中国加速服务：  
-> **[立即访问](https://cdn.mengze.vip/) ➡️**
+> 🚀 基于 Serverless 的多功能CDN反向代理服务，零成本、高可用  
+> **支持国内外主流前端资源库、API服务及字体加速**  
+> 🌐 **[演示站点：cdn.zeinklab.com](https://cdn.zeinklab.com)**
 
-基于 Serverless 架构编写的 Jsdelivr 反向代理解决方案模板仓库，提供零成本、高可用的 CDN 加速服务，解决中国内陆地区因GFW拦截，Jsdelivr官方节点访问受限问题。
+基于 Netlify/Vercel Serverless 架构编写的全能CDN反向代理解决方案，不仅解决 jsDelivr 在中国大陆访问受限问题，更扩展支持 Google Fonts、Gravatar、Gemini API 等多种服务。
 
 ![License](https://img.shields.io/badge/license-MIT-green)
+![Deploy](https://img.shields.io/badge/Deploy-Netlify%7CVercel-blue)
+
+---
+
+## ✨ 核心特性
+
+| 服务类型 | 本地路径 | 目标CDN | 用途说明 |
+|----------|----------|---------|----------|
+| **AI API** | `/gemini/*` | Google Generative Language API | Gemini 模型接口代理 |
+| **NPM加速** | `/npm/*` | jsDelivr NPM | NPM 包文件加速 |
+| **GitHub加速** | `/gh/*` | jsDelivr GitHub | GitHub 仓库文件代理 |
+| **WordPress加速** | `/wp/*` | jsDelivr WordPress | WordPress 插件/主题加速 |
+| **头像服务** | `/avatar/*` | Gravatar | 头像服务反代 |
+| **NPM浏览器化** | `/unpkg/*` | unpkg | 自动解析NPM包浏览器入口 |
+| **前端库** | `/cdnjs/*` | cdnjs.cloudflare.com | 通用前端库加速 |
+| **字体样式** | `/fonts/*` | Google Fonts CSS | Web字体样式表代理 |
+| **字体文件** | `/fonts-gstatic/*` | Google Fonts Static | WOFF2字体文件加速 |
+| **jQuery官方** | `/jquery/*` | code.jquery.com | jQuery 官方CDN |
+| **Bootstrap** | `/bootstrap/*` | BootstrapCDN | Bootstrap 框架加速 |
+| **图标库** | `/fontawesome/*` | Font Awesome | 图标字体库代理 |
+
 
 [![Star History Chart](https://api.star-history.com/svg?repos=JanePHPDev/Vercel-Netlify-Jsdelivr-Mirror&type=Date)](https://star-history.com/#JanePHPDev/Vercel-Netlify-Jsdelivr-Mirror&Date) 
 
