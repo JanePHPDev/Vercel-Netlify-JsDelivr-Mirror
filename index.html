@@ -1,489 +1,224 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>泽客来宾公益反代CDN - cdn.zeinklab.com</title>
-    <link rel="stylesheet" href="/cdnjs/prism/1.29.0/themes/prism.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: #ffffff;
-            color: #000000;
-            line-height: 1.5;
-            font-size: 14px;
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            background: #f8f9fa;
-            border-bottom: 1px solid #e0e0e0;
-            padding: 15px 0;
-            margin-bottom: 20px;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        h1 {
-            font-size: 24px;
-            font-weight: 700;
-            color: #000000;
-        }
-        
-        .domain {
-            font-family: 'Courier New', monospace;
-            font-size: 16px;
-            color: #333333;
-            font-weight: 600;
-        }
-        
-        .badge {
-            display: inline-block;
-            background: #e0e0e0;
-            color: #000000;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-left: 10px;
-            border: 1px solid #cccccc;
-        }
-        
-        .section {
-            background: #ffffff;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 15px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
-        
-        .section-title {
-            font-size: 18px;
-            color: #000000;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 600;
-        }
-        
-        .section-title::before {
-            content: "▸";
-            color: #333333;
-        }
-        
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 12px;
-        }
-        
-        .service-card {
-            background: #f8f9fa;
-            border: 1px solid #e0e0e0;
-            border-radius: 6px;
-            padding: 12px;
-            transition: all 0.2s ease;
-        }
-        
-        .service-card:hover {
-            border-color: #666666;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        
-        .service-name {
-            font-size: 14px;
-            font-weight: 600;
-            color: #000000;
-            margin-bottom: 6px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .service-path {
-            font-family: 'Courier New', monospace;
-            font-size: 13px;
-            color: #333333;
-            background: #e8e8e8;
-            padding: 2px 6px;
-            border-radius: 4px;
-            margin-bottom: 6px;
-            font-weight: 500;
-        }
-        
-        .service-desc {
-            font-size: 13px;
-            color: #555555;
-            margin-bottom: 8px;
-        }
-        
-        .example-box {
-            background: #f0f0f0;
-            border: 1px solid #d0d0d0;
-            border-radius: 4px;
-            padding: 8px;
-            margin-top: 8px;
-            position: relative;
-        }
-        
-        .example-title {
-            font-size: 12px;
-            color: #333333;
-            margin-bottom: 4px;
-            font-weight: 600;
-        }
-        
-        code {
-            font-family: 'Courier New', monospace;
-            font-size: 12px;
-            color: #000000;
-            background: #e8e8e8;
-            padding: 1px 3px;
-            border-radius: 3px;
-        }
-        
-        .quick-start {
-            background: #f0f4f8;
-            border: 1px solid #d0d0d0;
-        }
-        
-        .warning {
-            background: #fff9e6;
-            border: 1px solid #e0c090;
-        }
-        
-        .warning .section-title {
-            color: #664d00;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: #666666;
-            font-size: 12px;
-            border-top: 1px solid #e0e0e0;
-            margin-top: 20px;
-        }
-        
-        a {
-            color: #333333;
-            text-decoration: underline;
-            text-decoration-color: #999999;
-        }
-        
-        a:hover {
-            color: #000000;
-            text-decoration-color: #333333;
-        }
-        
-        .usage-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 13px;
-        }
-        
-        .usage-table th,
-        .usage-table td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        
-        .usage-table th {
-            background: #f0f0f0;
-            color: #000000;
-            font-weight: 600;
-        }
-        
-        .usage-table tr:hover {
-            background: #f8f9fa;
-        }
-        
-        pre {
-            margin: 0 !important;
-            border-radius: 4px !important;
-            font-size: 12px !important;
-            background: #f8f9fa !important;
-        }
-        
-        pre code {
-            font-size: 12px !important;
-            color: #000000 !important;
-        }
-        
-        .copy-btn {
-            float: right;
-            background: #e0e0e0;
-            border: 1px solid #cccccc;
-            color: #333333;
-            padding: 2px 6px;
-            border-radius: 3px;
-            cursor: pointer;
-            font-size: 11px;
-            transition: all 0.2s ease;
-            font-weight: 500;
-        }
-        
-        .copy-btn:hover {
-            background: #d0d0d0;
-            color: #000000;
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-            
-            .service-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            h1 {
-                font-size: 20px;
-            }
-            
-            .domain {
-                font-size: 14px;
-            }
-            
-            .header-content {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-    </style>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>泽客CDN反代 - cdn.zeinklab.com</title>
+   <style>
+       * { margin: 0; padding: 0; box-sizing: border-box; }
+       body {
+           font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+           line-height: 1.4;
+           max-width: 1000px;
+           margin: 0 auto;
+           padding: 15px;
+           background: #fff;
+           color: #000;
+           font-size: 14px;
+       }
+       h1 { font-size: 1.8em; margin: 0.5em 0; font-weight: 600; }
+       h2 { font-size: 1.3em; margin: 1.2em 0 0.5em 0; font-weight: 600; }
+       p { margin: 0.5em 0; }
+       .domain {
+           font-size: 1.1em;
+           color: #333;
+           font-weight: 500;
+           margin-bottom: 0.8em;
+       }
+       table {
+           width: 100%;
+           border-collapse: collapse;
+           margin: 0.8em 0;
+           font-size: 0.92em;
+       }
+       th, td {
+           border: 1px solid #ccc;
+           padding: 6px 8px;
+           text-align: left;
+           vertical-align: top;
+       }
+       th {
+           background: #f0f0f0;
+           font-weight: 600;
+           white-space: nowrap;
+       }
+       code {
+           background: #f5f5f5;
+           padding: 1px 4px;
+           font-family: "Consolas", "Monaco", monospace;
+           font-size: 0.95em;
+           word-break: break-all;
+       }
+       .section {
+           margin: 1.2em 0;
+           padding: 0.8em;
+           border: 1px solid #ddd;
+       }
+       .warning {
+           background: #fffacd;
+           border: 1px solid #ffd700;
+           padding: 0.6em;
+           margin: 0.6em 0;
+       }
+       ul { margin-left: 2em; }
+       li { margin: 0.3em 0; }
+       a { color: #0066cc; text-decoration: none; }
+       a:hover { text-decoration: underline; }
+       
+       @media screen and (max-width: 768px) {
+           body { font-size: 13px; padding: 10px; }
+           h1 { font-size: 1.5em; }
+           h2 { font-size: 1.2em; }
+           table { font-size: 0.85em; }
+           th, td { padding: 4px 5px; }
+           .section { padding: 0.6em; }
+       }
+       @media screen and (max-width: 480px) {
+           table { font-size: 0.8em; overflow-x: auto; display: block; }
+           th, td { padding: 3px 4px; }
+       }
+   </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <h1>泽客来宾公益反代CDN</h1>
-                <div>
-                    <span class="domain">cdn.zeinklab.com</span>
-                    <span class="badge">公益</span>
-                    <span class="badge">高速</span>
-                </div>
-            </div>
-        </div>
-    </header>
 
-    <div class="container">
-        <!-- 快速开始 -->
-        <div class="section quick-start">
-            <div class="section-title">⚡ 快速开始</div>
-            <p>将以下任意 CDN 域名替换为 <code>cdn.zeinklab.com</code>，并添加对应的前缀路径即可使用。</p>
-            <div class="example-box">
-                <div class="example-title">示例：加载 Vue 3</div>
-                <pre><code class="language-html">&lt;!-- 原地址 --&gt;
-&lt;script src="https://cdn.jsdelivr.net/npm/vue@3.3.4/dist/vue.global.js"&gt;&lt;/script&gt;
+<h1>泽客CDN反代</h1>
+<p class="domain">域名：<code>cdn.zeinklab.com</code></p>
 
-&lt;!-- 反代地址 --&gt;
-&lt;script src="https://cdn.zeinklab.com/npm/vue@3.3.4/dist/vue.global.js"&gt;&lt;/script&gt;</code></pre>
-            </div>
-        </div>
+<div class="section">
+<p>本服务提供常用前端资源库的反向代理加速，适用于开发环境和生产环境。所有路径均支持通配符匹配，可直接替换原有CDN链接。</p>
+</div>
 
-        <!-- 反代服务列表 -->
-        <div class="section">
-            <div class="section-title">🛠️ 反代服务列表</div>
-            <div class="service-grid">
-                <div class="service-card">
-                    <div class="service-name">
-                        NPM (jsDelivr)
-                        <span class="badge">推荐</span>
-                    </div>
-                    <div class="service-path">/npm/*</div>
-                    <div class="service-desc">反代 npm 包，支持所有 jsDelivr 的 npm 功能</div>
-                    <div class="example-box">
-                        <div class="example-title">使用示例</div>
-                        <pre><code class="language-bash">https://cdn.zeinklab.com/npm/package@version/file</code></pre>
-                    </div>
-                </div>
+<div class="warning">
+<strong>重要限制：</strong>直接访问根路径可查看此页面；任何以 <code>.pdf</code> 结尾的请求将被阻止（HTTP 403）。
+</div>
 
-                <div class="service-card">
-                    <div class="service-name">GitHub (jsDelivr)</div>
-                    <div class="service-path">/gh/*</div>
-                    <div class="service-desc">反代 GitHub 仓库文件</div>
-                    <div class="example-box">
-                        <div class="example-title">使用示例</div>
-                        <pre><code class="language-bash">https://cdn.zeinklab.com/gh/user/repo@version/file</code></pre>
-                    </div>
-                </div>
+<h2>可用服务列表</h2>
+<table>
+   <tr>
+       <th>本地路径</th>
+       <th>目标CDN</th>
+       <th>用途说明</th>
+       <th>完整示例链接</th>
+   </tr>
+   <tr>
+       <td><code>https://cdn.zeinklab.com/gemini</code></td>
+       <td>Google Generative Language API</td>
+       <td>Gemini AI API 代理，用于调用谷歌生成式AI模型接口</td>
+       <td><code>https://cdn.zeinklab.com/gemini/v1/models</code></td>
+   </tr>
+   <tr>
+       <td><code>https://cdn.zeinklab.com/npm/*</code></td>
+       <td>jsDelivr NPM 仓库</td>
+       <td>NPM 包加速，支持指定版本号、标签和具体文件路径</td>
+       <td><code>https://cdn.zeinklab.com/npm/vue@3.3.4/dist/vue.global.js</code></td>
+   </tr>
+   <tr>
+       <td><code>https://cdn.zeinklab.com/gh/*</code></td>
+       <td>jsDelivr GitHub 代理</td>
+       <td>GitHub 仓库文件代理，格式：/gh/用户/仓库@版本/文件路径</td>
+       <td><code>https://cdn.zeinklab.com/gh/twbs/bootstrap@5.3.0/dist/css/bootstrap.css</code></td>
+   </tr>
+   <tr>
+       <td><code>https://cdn.zeinklab.com/wp/*</code></td>
+       <td>jsDelivr WordPress 仓库</td>
+       <td>WordPress 插件/主题资源加速，支持官方仓库所有资源</td>
+       <td><code>https://cdn.zeinklab.com/wp/plugins/akismet/tags/5.2/akismet.js</code></td>
+   </tr>
+   <tr>
+       <td><code>https://cdn.zeinklab.com/avatar/*</code></td>
+       <td>Gravatar 头像服务</td>
+       <td>头像服务代理，支持尺寸、默认头像等参数，哈希算法：MD5</td>
+       <td><code>https://cdn.zeinklab.com/avatar/EMAIL_MD5_HASH?s=200&d=mp&r=g</code></td>
+   </tr>
+   <tr>
+       <td><code>https://cdn.zeinklab.com/unpkg/*</code></td>
+       <td>unpkg 服务</td>
+       <td>NPM 包浏览器友好化，自动解析包入口文件及依赖</td>
+       <td><code>https://cdn.zeinklab.com/unpkg/react@18.2.0/umd/react.production.min.js</code></td>
+   </tr>
+   <tr>
+       <td><code>https://cdn.zeinklab.com/cdnjs/*</code></td>
+       <td>cdnjs 前端库</td>
+       <td>通用前端库加速，包含数千个常见JavaScript/CSS库</td>
+       <td><code>https://cdn.zeinklab.com/cdnjs/jquery/3.7.1/jquery.min.js</code></td>
+   </tr>
+   <tr>
+       <td><code>https://cdn.zeinklab.com/fonts/*</code></td>
+       <td>Google Fonts CSS 接口</td>
+       <td>Web字体样式表代理，支持多字体、字重和字符集参数</td>
+       <td><code>https://cdn.zeinklab.com/fonts?family=Roboto:wght@300;400;700&display=swap</code></td>
+   </tr>
+   <tr>
+       <td><code>https://cdn.zeinklab.com/fonts-gstatic/*</code></td>
+       <td>Google Fonts 静态资源</td>
+       <td>字体文件资源代理，提供WOFF2等格式的字体文件</td>
+       <td><code>https://cdn.zeinklab.com/fonts-gstatic/roboto/v30/KFOmCnqEu92Fr1Mu4mxK.woff2</code></td>
+   </tr>
+   <tr>
+       <td><code>https://cdn.zeinklab.com/jquery/*</code></td>
+       <td>jQuery 官方CDN</td>
+       <td>jQuery官方CDN代理，提供所有版本的核心库及插件</td>
+       <td><code>https://cdn.zeinklab.com/jquery/jquery-3.7.1.min.js</code></td>
+   </tr>
+   <tr>
+       <td><code>https://cdn.zeinklab.com/bootstrap/*</code></td>
+       <td>BootstrapCDN 服务</td>
+       <td>Bootstrap框架资源，包含CSS、JS及主题文件所有版本</td>
+       <td><code>https://cdn.zeinklab.com/bootstrap/5.3.0/css/bootstrap.min.css</code></td>
+   </tr>
+   <tr>
+       <td><code>https://cdn.zeinklab.com/fontawesome/*</code></td>
+       <td>Font Awesome 图标库</td>
+       <td>图标字体库代理，支持CSS和JS两种引入方式及版本选择</td>
+       <td><code>https://cdn.zeinklab.com/fontawesome/v6.4.0/css/all.css</code></td>
+   </tr>
+</table>
 
-                <div class="service-card">
-                    <div class="service-name">WordPress (jsDelivr)</div>
-                    <div class="service-path">/wp/*</div>
-                    <div class="service-desc">反代 WordPress 插件和主题</div>
-                    <div class="example-box">
-                        <div class="example-title">使用示例</div>
-                        <pre><code class="language-bash">https://cdn.zeinklab.com/wp/plugin/tags/version/file</code></pre>
-                    </div>
-                </div>
+<h2>使用示例</h2>
 
-                <div class="service-card">
-                    <div class="service-name">Gravatar 头像</div>
-                    <div class="service-path">/avatar/*</div>
-                    <div class="service-desc">反代 Gravatar 用户头像</div>
-                    <div class="example-box">
-                        <div class="example-title">使用示例</div>
-                        <pre><code class="language-bash">https://cdn.zeinklab.com/avatar/HASH?s=200</code></pre>
-                    </div>
-                </div>
+<div class="section">
+<h3>HTML 中替换 CDN 链接</h3>
+<p>原始链接：</p>
+<code>&lt;script src="https://cdn.jsdelivr.net/npm/vue@3.3.4/dist/vue.global.js"&gt;&lt;/script&gt;</code>
+<p>替换为：</p>
+<code>&lt;script src="https://cdn.zeinklab.com/npm/vue@3.3.4/dist/vue.global.js"&gt;&lt;/script&gt;</code>
+</div>
 
-                <div class="service-card">
-                    <div class="service-name">UNPKG</div>
-                    <div class="service-path">/unpkg/*</div>
-                    <div class="service-desc">反代 UNPKG CDN</div>
-                    <div class="example-box">
-                        <div class="example-title">使用示例</div>
-                        <pre><code class="language-bash">https://cdn.zeinklab.com/unpkg/package@version/file</code></pre>
-                    </div>
-                </div>
+<div class="section">
+<h3>API 调用示例</h3>
+<p>访问 Gemini API：</p>
+<code>POST https://cdn.zeinklab.com/gemini/v1/models/gemini-pro:generateContent</code>
+</div>
 
-                <div class="service-card">
-                    <div class="service-name">CDNJS</div>
-                    <div class="service-path">/cdnjs/*</div>
-                    <div class="service-desc">反代 CDNJS 库</div>
-                    <div class="example-box">
-                        <div class="example-title">使用示例</div>
-                        <pre><code class="language-bash">https://cdn.zeinklab.com/cdnjs/library/version/file</code></pre>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="section">
+<h3>Gravatar 头像调用</h3>
+<p>生成用户头像（200像素，默认神秘人头像）：</p>
+<code>&lt;img src="https://cdn.zeinklab.com/avatar/EMAIL_MD5_HASH?s=200&d=mp" alt="用户头像"&gt;</code>
+</div>
 
-        <!-- 详细用法 -->
-        <div class="section">
-            <div class="section-title">📋 详细用法</div>
-            <table class="usage-table">
-                <thead>
-                    <tr>
-                        <th>服务</th>
-                        <th>原地址</th>
-                        <th>反代地址</th>
-                        <th>示例</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>jsDelivr NPM</td>
-                        <td><code>cdn.jsdelivr.net/npm/:path</code></td>
-                        <td><code>cdn.zeinklab.com/npm/:path</code></td>
-                        <td><code>/npm/vue@3.3.4/dist/vue.global.js</code></td>
-                    </tr>
-                    <tr>
-                        <td>jsDelivr GitHub</td>
-                        <td><code>cdn.jsdelivr.net/gh/:path</code></td>
-                        <td><code>cdn.zeinklab.com/gh/:path</code></td>
-                        <td><code>/gh/jquery/jquery@3.6.0/dist/jquery.min.js</code></td>
-                    </tr>
-                    <tr>
-                        <td>jsDelivr WordPress</td>
-                        <td><code>cdn.jsdelivr.net/wp/:path</code></td>
-                        <td><code>cdn.zeinklab.com/wp/:path</code></td>
-                        <td><code>/wp/wp-slimstat/tags/4.9.3/wp-slimstat.min.js</code></td>
-                    </tr>
-                    <tr>
-                        <td>Gravatar</td>
-                        <td><code>www.gravatar.com/avatar/:hash</code></td>
-                        <td><code>cdn.zeinklab.com/avatar/:hash</code></td>
-                        <td><code>/avatar/205e460b479e2e5b48aec07710c08d50?s=200</code></td>
-                    </tr>
-                    <tr>
-                        <td>UNPKG</td>
-                        <td><code>unpkg.com/:path</code></td>
-                        <td><code>cdn.zeinklab.com/unpkg/:path</code></td>
-                        <td><code>/unpkg/react@18.2.0/umd/react.production.min.js</code></td>
-                    </tr>
-                    <tr>
-                        <td>CDNJS</td>
-                        <td><code>cdnjs.cloudflare.com/ajax/libs/:path</code></td>
-                        <td><code>cdn.zeinklab.com/cdnjs/:path</code></td>
-                        <td><code>/cdnjs/jquery/3.6.0/jquery.min.js</code></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+<h2>规则说明</h2>
+<table>
+   <tr><th>规则类型</th><th>匹配模式</th><th>响应</th><th>优先级</th></tr>
+   <tr><td>页面</td><td><code>/</code></td><td>返回此文档</td><td>最高</td></tr>
+   <tr><td>阻止</td><td><code>*.pdf</code></td><td>HTTP 403 Forbidden</td><td>高</td></tr>
+   <tr><td>代理</td><td><code>/path/*</code></td><td>转发到对应CDN</td><td>普通</td></tr>
+</table>
 
-        <!-- 代码示例 -->
-        <div class="section">
-            <div class="section-title">💻 HTML 中使用示例</div>
-            <div class="example-box">
-                <button class="copy-btn" onclick="copyCode(this)">复制</button>
-                <pre><code class="language-html">&lt;!-- 加载 Vue 3 --&gt;
-&lt;script src="https://cdn.zeinklab.com/npm/vue@3.3.4/dist/vue.global.js"&gt;&lt;/script&gt;
+<div class="warning">
+<p><strong>注意：</strong>所有代理路径均为 <code>200</code> 状态码重写，浏览器地址栏不会变化。不支持自定义路径添加或修改，如需调整请重新部署配置。</p>
+</div>
 
-&lt;!-- 加载 React --&gt;
-&lt;script crossorigin src="https://cdn.zeinklab.com/unpkg/react@18.2.0/umd/react.production.min.js"&gt;&lt;/script&gt;
+<h2>性能建议</h2>
+<ul>
+   <li>生产环境建议配置适当的缓存策略</li>
+   <li>HTTPS 必须启用，所有代理目标均使用 HTTPS 协议</li>
+   <li>建议开启 HTTP/2 或 HTTP/3 以提升加载速度</li>
+   <li>对于高并发场景，考虑添加边缘缓存层</li>
+</ul>
 
-&lt;!-- 加载 jQuery --&gt;
-&lt;script src="https://cdn.zeinklab.com/cdnjs/jquery/3.6.0/jquery.min.js"&gt;&lt;/script&gt;
+<p style="margin-top: 2em; font-size: 0.9em; color: #666;">
+   泽客CDN服务运行正常 | 最后更新：2026年
+</p>
 
-&lt;!-- 加载 Bootstrap CSS --&gt;
-&lt;link rel="stylesheet" href="https://cdn.zeinklab.com/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"&gt;
-
-&lt;!-- 显示 Gravatar 头像 --&gt;
-&lt;img src="https://cdn.zeinklab.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200" alt="Avatar"&gt;</code></pre>
-            </div>
-        </div>
-
-        <!-- 注意事项 -->
-        <div class="section warning">
-            <div class="section-title">⚠️ 注意事项</div>
-            <ul style="margin-left: 20px; color: #664d00;">
-                <li>本服务为公益性质，不保证 100% 可用性</li>
-                <li>所有请求都会经过 Netlify，可能有 26 秒超时限制</li>
-                <li>CDN 缓存遵循源站策略，缓存时间可能较长</li>
-                <li>请勿用于非法或滥用用途</li>
-                <li>如遇到问题，请检查源站是否可访问</li>
-            </ul>
-        </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2024 泽客来宾公益反代CDN | <a href="https://zeinklab.com" target="_blank">zeinklab.com</a></p>
-        <p style="margin-top: 8px; font-size: 11px; color: #888888;">Powered by Netlify | 为开发者提供更快的资源加载</p>
-    </footer>
-
-    <script src="/cdnjs/prism/1.29.0/components/prism-core.min.js"></script>
-    <script src="/cdnjs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
-    
-    <script>
-        // 复制代码功能
-        function copyCode(button) {
-            const code = button.nextElementSibling.textContent;
-            navigator.clipboard.writeText(code).then(() => {
-                const originalText = button.textContent;
-                button.textContent = '已复制!';
-                button.style.background = '#d0d0d0';
-                button.style.color = '#000000';
-                setTimeout(() => {
-                    button.textContent = originalText;
-                    button.style.background = '#e0e0e0';
-                    button.style.color = '#333333';
-                }, 2000);
-            });
-        }
-    </script>
 </body>
 </html>
