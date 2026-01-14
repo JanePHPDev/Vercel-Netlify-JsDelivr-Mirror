@@ -5,11 +5,6 @@
   force = true
 
 [[redirects]]
-  from = "/en"
-  to = "/index-en.html"
-  status = 200
-
-[[redirects]]
   pattern = "/(.*)(.pdf$)"
   to = "/"
   status = 403
