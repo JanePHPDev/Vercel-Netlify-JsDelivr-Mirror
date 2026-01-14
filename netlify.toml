@@ -1,76 +1,33 @@
-[build]
-  publish = "."
-  command = ""
-
-
 [[redirects]]
   from = "/"
   to = "/index.html"
   status = 200
-  conditions = {Role = ["anonymous"]}
+  force = true
 
 [[redirects]]
-  from = "/npm/*"
-  to = "https://cdn.jsdelivr.net/npm/:splat"
+  from = "/en"
+  to = "/index-en.html"
+  status = 200
+
+[[redirects]]
+  pattern = "/(.*)(.pdf$)"
+  to = "/"
+  status = 403
+  force = true
+
+[[redirects]]
+  from = "/gemini"
+  to = "https://generativelanguage.googleapis.com/"
   status = 200
   force = true
 
 [[redirects]]
-  from = "/gh/*"
-  to = "https://cdn.jsdelivr.net/gh/:splat"
+  from = "/turbofely"
+  to = "/npm/turbofely@1.0.0/src/turbofely.js"
   status = 200
-  force = true
 
 [[redirects]]
-  from = "/wp/*"
-  to = "https://cdn.jsdelivr.net/wp/:splat"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/avatar/*"
-  to = "https://www.gravatar.com/avatar/:splat"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/unpkg/*"
-  to = "https://unpkg.com/:splat"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/cdnjs/*"
-  to = "https://cdnjs.cloudflare.com/ajax/libs/:splat"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/fonts/*"
-  to = "https://fonts.googleapis.com/css:splat"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/fonts-gstatic/*"
-  to = "https://fonts.gstatic.com/s/:splat"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/jquery/*"
-  to = "https://code.jquery.com/:splat"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/bootstrap/*"
-  to = "https://stackpath.bootstrapcdn.com/bootstrap/:splat"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/fontawesome/*"
-  to = "https://use.fontawesome.com/releases/:splat"
+  from = "/*"
+  to = "https://cdn.jsdelivr.net/:splat"
   status = 200
   force = true
