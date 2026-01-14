@@ -30,16 +30,16 @@
 | **图标库** | `/fontawesome/*` | Font Awesome | 图标字体库代理 |
 
 
-[![Star History Chart](https://api.star-history.com/svg?repos=JanePHPDev/Vercel-Netlify-Jsdelivr-Mirror&type=Date)](https://star-history.com/#JanePHPDev/Vercel-Netlify-Jsdelivr-Mirror&Date) 
+[![Star History Chart](https://api.star-history.com/svg?repos=JanePHPDev/ZeinkCDN-Proxy&type=Date)](https://star-history.com/#JanePHPDev/ZeinkCDN-Proxy&Date) 
 
 
 ## 🚀 快速部署
 
 ### Vercel 一键部署
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/JanePHPDev/Vercel-Netlify-JsDelivr-Mirror&project-name=jsd-mirror&repository-name=jsd-mirror)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/JanePHPDev/ZeinkCDN-Proxy&project-name=ZeinkCDN-Proxy&repository-name=ZeinkCDN-Proxy)
 
 ### Netlify 一键部署
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/JanePHPDev/Vercel-Netlify-JsDelivr-Mirror)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/JanePHPDev/ZeinkCDN-Proxy)
 
 > [!WARNING]
 > **重要安全提醒**  
@@ -90,11 +90,8 @@ https://cdn.yourdomain.com/npm/vue@3/dist/vue.global.js
 ## 🤝 参与贡献
 
 欢迎通过以下方式参与项目：
-1. 提交 [Issue](https://github.com/JanePHPDev/Vercel-Netlify-Jsdelivr-Mirror/issues) 反馈问题
+1. 提交 [Issue](https://github.com/JanePHPDev/ZeinkCDN-Proxy/issues) 反馈问题
 2. Fork 项目并提交 Pull Request
-
-贡献者名单：  
-![Contributors](https://contrib.rocks/image?repo=JanePHPDev/Vercel-Netlify-Jsdelivr-Mirror)
 
 ## 📜 开源协议
 
