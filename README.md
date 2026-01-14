@@ -1,4 +1,4 @@
-## 泽客CDN反代 / ZekCDN Proxy
+## 泽客CDN / ZeinkCDN Proxy
 
 > [!TIP]
 > 🚀 基于 Serverless 的多功能CDN反向代理服务，零成本、高可用  
